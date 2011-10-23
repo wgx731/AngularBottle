@@ -1,0 +1,13 @@
+!.gitignore
+*~
+# KDE
+.directory
+# python 
+bin
+build
+include
+lib
+.Python
+*.pyc
+# session
+session/*

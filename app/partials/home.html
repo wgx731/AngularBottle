@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="span12">
+        <h2>Weather Information:</h2>
+        <div class="row">
+            <div class="span6">
+                <h3>Current:</h3>
+                <p>City: {{forecast_information.city}}</p>
+                <ul>
+                    <li>
+                        Current Condition: {{current_conditions.condition}} <img class="thumbnail" src="http://www.google.com{{current_conditions.icon}}"></img>
+                    </li>
+                    <li>
+                        Temperature C: {{current_conditions.temp_c}}
+                    </li>
+                    <li>
+                        Temperature F: {{current_conditions.temp_f}}
+                    </li>
+                    <li>
+                        {{current_conditions.humidity}}
+                    </li>
+                    <li>
+                        {{current_conditions.wind_condition}}
+                    </li>
+                </ul>
+            </div>
+            <div class="span6">
+                <h3>Forecast:</h3>
+                <p>Forecast Date : {{forecast_information.forecast_date}}</p>
+                <ul ng:repeat="forecast in forecasts">
+                    <li>
+                        Current Condition: {{forecast.condition}} <img class="thumbnail" src="http://www.google.com{{forecast.icon}}"></img>
+                    </li>
+                    <li>
+                        High: {{forecast.high}} | Low: {{forecast.low}}
+                    </li>
+                    <li>
+                        Date: {{forecast.day_of_week}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
