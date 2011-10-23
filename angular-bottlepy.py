@@ -70,4 +70,4 @@ def mistake404(code):
     return static_file('app/404.html', root='.')
 
 # start application
-bottle.run(app=app,host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+run(app=app,host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
