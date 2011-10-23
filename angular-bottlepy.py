@@ -1,6 +1,10 @@
+import os
+import bottle
 import pywapi
 from bottle import route, run, static_file, redirect, request, error
 from beaker.middleware import SessionMiddleware
+
+bottle.debug(True)
 
 # session set up
 app = bottle.default_app()
@@ -70,4 +74,4 @@ def mistake404(code):
     return static_file('app/404.html', root='.')
 
 # start application
-run(app=app,host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+bottle.run(app=app,host='0.0.0.0', port=argv[1])
