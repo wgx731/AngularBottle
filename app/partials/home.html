@@ -2,8 +2,14 @@
     <div class="span12">
         <h2>Weather Information:</h2>
         <div class="row" ng:show="forecast_information.city == undefined">
-            <div class="span6">
+            <div class="span12">
                 <h3>Sorry, no weather information.</h3>
+            </div>
+        </div>
+        <div class="row" ng:show="show_alert == true && warning_conditions.$indexOf(current_conditions.condition) >= 0">
+            <div class="alert-message error span12">
+                <a class="close" ng:click="show_alert=false;">×</a>
+                <p><strong>Warning !</strong> Better bring an umbrella with you today.</p>
             </div>
         </div>
         <div class="row" ng:hide="forecast_information.city == undefined">

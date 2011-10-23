@@ -1,2 +1,32 @@
 /* app css stylesheet */
 
+body{
+    min-height:680px;
+    background:#DCEAF4;
+}
+.main{
+    min-height:500px;
+    background:#BBD8E9;
+    padding:40px;
+}
+
+.popover-well {
+    min-height: 160px;
+}
+.popover-well .popover {
+    display: block;
+}
+.popover-well .popover-wrapper {
+    width: 50%;
+    height: 160px;
+    float: left;
+    margin-left: 55px;
+    position: relative;
+}
+.popover-well .popover-menu-wrapper {
+    height: 80px;
+}
+img.photo {
+    margin: 40px 0 0 310px;
+    opacity: .75;
+}

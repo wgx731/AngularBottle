@@ -22,6 +22,10 @@ def server_static(path):
 def server_static(path):
     return static_file(path, root='./app/css/')
 
+@route('/favicon.ico')
+def favicon():
+    return static_file('favicon.ico', root='./app/')
+
 @route('/img/:path#.+#')
 def server_static(path):
     return static_file(path, root='./app/img/')

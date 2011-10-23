@@ -5,6 +5,7 @@
             Angular Bottlepy Example
         </title>
         <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/app.css">
     </head>
     <body>
         <div class="topbar-wrapper" style="z-index: 5;">
@@ -13,7 +14,7 @@
                     <div class="container">
                         <h3><a href="/">Angular Bottlepy Example</a></h3>
                         <ul class="nav" ng:controller="NavCtrl">
-                            <li class="active" ng:class="isActive('home')" ng:click="activeTab = 'home'"><a href="#/home">Home</a></li>
+                            <li ng:class="isActive('home')" ng:click="activeTab = 'home'"><a href="#/home">Home</a></li>
                             <li ng:class="isActive('settings')" ng:click="activeTab = 'settings'"><a href="#/settings">Settings</a></li>
                             <li ng:class="isActive('info')" ng:click="activeTab = 'info'"><a href="#/info">Developer Info</a></li>
                         </ul>
@@ -21,16 +22,15 @@
                 </div><!-- /topbar-inner -->
             </div><!-- /topbar -->
         </div>
-    <div class="container">
         <h1>Angular Bottlepy Example</h1>
+        <div class="container main">
+            <ng:view></ng:view>
 
-        <ng:view></ng:view>
-
-    </div>
-    <script src="lib/angular/angular.js" ng:autobind ></script>
-    <script src="js/services.js" ></script>
-    <script src="js/controllers.js" ></script>
-    <script src="js/filters.js" ></script>
-    <script src="js/widgets.js" ></script>
-  </body>
+        </div>
+        <script src="lib/angular/angular.js" ng:autobind ></script>
+        <script src="js/services.js" ></script>
+        <script src="js/controllers.js" ></script>
+        <script src="js/filters.js" ></script>
+        <script src="js/widgets.js" ></script>
+    </body>
 </html>
