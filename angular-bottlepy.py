@@ -57,10 +57,6 @@ def get_countries():
     result = pywapi.get_countries_from_google('en')
     return { 'countries' : result }
 
-@error(404)
-def mistake404(code):
-    raise static_file('app/404.html', root='.')
-
 @route('/')
 @route('/index.html')
 def index():
@@ -69,6 +65,10 @@ def index():
 @route('/slides')
 def slides():
     raise static_file('app/slides.html', root='.')
+
+@error(404)
+def mistake404(code):
+    return static_file('app/404.html', root='.')
 
 # start application
 bottle.run(app=app,host='localhost', port=8080)
