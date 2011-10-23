@@ -1,4 +1,3 @@
-import bottle
 import pywapi
 from bottle import route, run, static_file, redirect, request, error
 from beaker.middleware import SessionMiddleware
@@ -71,4 +70,4 @@ def mistake404(code):
     return static_file('app/404.html', root='.')
 
 # start application
-bottle.run(app=app,host='localhost', port=8080)
+bottle.run(app=app,host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
