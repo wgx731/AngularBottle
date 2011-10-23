@@ -35,9 +35,13 @@ def favicon():
 def server_static(path):
     return static_file(path, root='./app/img/')
 
-@route('/lib/:path#.+#')
+@route('/lib/angular/:path#.+#')
 def server_static(path):
-    return static_file(path, root='./app/lib/')
+    return static_file(path, root='./app/lib/angular/')
+
+@route('/lib/syntaxhighlighter/:path#.+#')
+def server_static(path):
+    return static_file(path, root='./app/lib/syntaxhighlighter/')
 
 @route('/partials/:path#.+#')
 def server_static(path):
