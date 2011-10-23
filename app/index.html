@@ -1,20 +1,29 @@
 <!doctype html>
 <html xmlns:ng="http://angularjs.org">
-  <head>
-    <title>
-      Angular Bottlepy Example
-    </title>
-    <link rel="stylesheet" href="css/bootstrap.css">
-  </head>
-  <body>
+    <head>
+        <title>
+            Angular Bottlepy Example
+        </title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+    </head>
+    <body>
+        <div class="topbar-wrapper" style="z-index: 5;">
+            <div class="topbar" data-dropdown="dropdown">
+                <div class="topbar-inner">
+                    <div class="container">
+                        <h3><a href="/">Angular Bottlepy Example</a></h3>
+                        <ul class="nav" ng:controller="NavCtrl">
+                            <li class="active" ng:class="isActive('home')" ng:click="activeTab = 'home'"><a href="#/home">Home</a></li>
+                            <li ng:class="isActive('settings')" ng:click="activeTab = 'settings'"><a href="#/settings">Settings</a></li>
+                            <li ng:class="isActive('info')" ng:click="activeTab = 'info'"><a href="#/info">Developer Info</a></li>
+                        </ul>
+                    </div>
+                </div><!-- /topbar-inner -->
+            </div><!-- /topbar -->
+        </div>
     <div class="container">
         <h1>Angular Bottlepy Example</h1>
 
-        <ul class="tabs" ng:controller="NavCtrl">
-            <li class="active" ng:class="isActive('home')" ng:click="activeTab = 'home'"><a href="#/home">Home</a></li>
-            <li ng:class="isActive('settings')" ng:click="activeTab = 'settings'"><a href="#/settings">Settings</a></li>
-            <li ng:class="isActive('info')" ng:click="activeTab = 'info'"><a href="#/info">Developer Info</a></li>
-        </ul>
         <ng:view></ng:view>
 
     </div>

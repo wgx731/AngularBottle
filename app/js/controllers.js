@@ -12,7 +12,6 @@ NavCtrl.$inject = [];
 function HomeCtrl($xhr){
   var self = this;
   $xhr('GET', 'weather', function(code, response) {
-    self.result = response;
     self.current_conditions = response['current_conditions'];
     self.forecast_information = response['forecast_information'];
     self.forecasts = response['forecasts'];
@@ -20,9 +19,13 @@ function HomeCtrl($xhr){
 }
 HomeCtrl.$inject = ['$xhr'];
 
-function SettingsCtrl(){
+function SettingsCtrl($xhr){
+  var self = this;
+  $xhr('GET', 'countries', function(code, response) {
+      self.countries = response['countries'];
+  });
 }
-SettingsCtrl.$inject = [];
+SettingsCtrl.$inject = ['$xhr'];
 
 function InfoCtrl(){
 }

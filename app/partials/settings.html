@@ -1,1 +1,15 @@
-<p>This is the partial for view 2.</p>
+<form action="/settings" method="POST">
+    <fieldset>
+        <div class="clearfix">
+            <label for="location">Preference Country</label>
+            <div class="input">
+                <select name="location" id="location">
+                    <option ng:repeat="country in countries">{{country.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="actions">
+            <input type="submit" class="btn primary" value="Save changes">&nbsp;<button type="reset" class="btn">Cancel</button>
+        </div>
+    </fieldset>
+</form>
