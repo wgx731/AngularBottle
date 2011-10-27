@@ -20,9 +20,9 @@ app = SessionMiddleware(app, session_opts)
 
 # static files (js,css,partials) set up
 
-@route('/lib/angular/:path#.+#')
-def scenario_lib(path):
-    return static_file(path,root='./test/lib/angular/')
+@route('/lib/angular/angular-scenario.js')
+def scenario_lib():
+    return static_file('angular-scenario.js',root='./test/lib/angular/')
 
 @route('/scenarios.js')
 def scenario():
