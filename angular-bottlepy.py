@@ -19,6 +19,19 @@ session_opts = {
 app = SessionMiddleware(app, session_opts)
 
 # static files (js,css,partials) set up
+
+@route('/lib/angular/:path#.+#')
+def scenario_lib(path):
+    return static_file(path,root='./test/lib/angular/')
+
+@route('/scenarios.js')
+def scenario():
+    return static_file('scenarios.js',root='./test/e2e/')
+
+@route('/favicon.ico')
+def favicon():
+    return static_file('favicon.ico', root='./app/')
+
 @route('/js/:path#.+#')
 def server_static(path):
     return static_file(path, root='./app/js/')
@@ -26,10 +39,6 @@ def server_static(path):
 @route('/css/:path#.+#')
 def server_static(path):
     return static_file(path, root='./app/css/')
-
-@route('/favicon.ico')
-def favicon():
-    return static_file('favicon.ico', root='./app/')
 
 @route('/img/:path#.+#')
 def server_static(path):
@@ -61,15 +70,19 @@ def get_countries():
 @route('/')
 @route('/index.html')
 def index():
-    raise static_file('app/index.html', root='.')
+    raise static_file('index.html', root='./app')
 
 @route('/slides')
 def slides():
-    raise static_file('app/slides.html', root='.')
+    raise static_file('slides.html', root='./app')
+
+@route('/tests')
+def tests():
+    raise static_file('runner.html', root='./test/e2e/')
 
 @error(404)
 def mistake404(code):
-    return static_file('app/404.html', root='.')
+    return static_file('404.html', root='./app')
 
 # start application
 bottle.run(app=app,host='0.0.0.0', port=argv[1])

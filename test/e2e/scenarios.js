@@ -1,41 +1,50 @@
-describe('my app', function() {
+describe('angular bottle example test', function() {
 
   beforeEach(function() {
-    browser().navigateTo('../../app/index.html');
+    browser().navigateTo('/index.html');
   });
 
 
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    expect(browser().location().hash()).toBe("/view1");
+  it('should automatically redirect to /home when location hash/fragment is empty', function() {
+    expect(browser().location().hash()).toBe("/home");
   });
 
 
-  describe('view1', function() {
+  describe('home', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view1');
+      browser().navigateTo('#/home');
     });
 
 
-    it('should render view1 when user navigates to /view1', function() {
-      expect(element('ng\\:view p:first').text()).
-        toMatch(/partial for view 1/);
+    it('should render home when user navigates to /home', function() {
+      expect(element('ng\\:view h2').text()).
+        toMatch(/Weather Information:/);
     });
 
   });
 
-
-  describe('view2', function() {
+  describe('settings', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view2');
+      browser().navigateTo('#/settings');
     });
 
-
-    it('should render view1 when user navigates to /view2', function() {
-      expect(element('ng\\:view p:first').text()).
-        toMatch(/partial for view 2/);
+    it('should render settings when user navigates to /settings', function() {
+      expect(element('ng\\:view h2').text()).
+        toMatch(/Choose country to see report:/);
     });
 
+    it('should display Singapore weather report when I choose Singapore as preference', function(){
+        select('location').option('Singapore');
+        element('input:submit').click();
+        sleep(2);
+        expect(element('ng\\:view h2').text()).
+        toMatch(/Weather Information:/);
+        expect(element('ng\\:view p:nth-child(2)').text()).
+        toMatch(/City: Singapore/);
+    });
   });
+
+
 });

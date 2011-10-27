@@ -15,7 +15,7 @@
         <div class="row" ng:hide="forecast_information.city == undefined">
             <div class="span6">
                 <h3>Current:</h3>
-                <p>City: {{forecast_information.city}}</p>
+                <p id="current_city">City: {{forecast_information.city}}</p>
                 <ul>
                     <li ng:hide="current_conditions.condition == undefined || current_conditions.condition == ''">
                         Current Condition: {{current_conditions.condition}} <img class="thumbnail" src="http://www.google.com{{current_conditions.icon}}"></img>
