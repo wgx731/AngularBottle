@@ -1,2 +1,2 @@
-bottle==0.9.6
+bottle==0.12.19
 beaker==1.6.1
